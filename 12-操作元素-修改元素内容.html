@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM操作元素</title>
+    <style>
+        #result,p {
+            width: 300px;
+            height: 30px;
+            line-height: 30px;
+            color: #fff;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <button>显示当前系统时间</button>
+    <div id="result">ssssssss</div>
+    <p>123214124</p>
+
+    <script>
+        const btn = document.querySelector('button')
+        const ret = document.querySelector('#result')
+        const p = document.querySelector('p')
+
+        function getDate() {
+            let date = new Date()
+            let arr = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+            let num = date.getDay()//返回数字---星期一是1 星期天是0
+            let jihao = date.getDate()//返回几天几号
+            let month = date.getMonth() + 1//月 会少1  记得+1哟
+            return date.getFullYear() +'年'+month+'月'+jihao+'日'+arr[num]
+        }
+
+        btn.onclick = function() {
+            ret.innerText = getDate()
+        }
+
+
+        p.innerText = getDate()
+
+
+
+        // ret.innerHTML =  Date() 
+            //in
+
+    </script>
+</body>
+</html>

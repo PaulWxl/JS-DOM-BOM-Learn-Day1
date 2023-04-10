@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <style>
+        .box {
+            margin: 100px auto;
+            /* background-color: pink; */
+            width: 500px;
+            height: 150px;
+            box-sizing: border-box;
+        }
+        .box #pw {
+            border-radius: 10px ;
+            border: 1px solid #999;
+            padding-left: 10px;
+            width: 180px;
+            height: 28px;
+            vertical-align: baseline;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .box #pw:focus{
+            border: 1px solid #4e6ef2;
+            box-sizing: border-box;
+        }
+    
+        .box #span-1 {
+            color: red;
+            vertical-align: baseline;
+        }
+        .box #span-2 {
+            color: red;
+            vertical-align: baseline;
+        }
+        .box #img-wrong {
+            vertical-align: sub;
+        }
+        .box label {
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        .box #pw-close {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- 案例： 密码框格式提示错误信息
+    用户如果离开密码框，里面输入个数不是6~16，则提示错误信息，否则提示输入正确信息 -->
+
+
+    <div class="box">
+        <span id="span-1">*</span>
+        <label for="pw">设置密码： </label>
+        <span>
+            
+        </span>
+        <input type="password" id="pw" name="password" class="pw" >
+        <i>
+            <img src="./images/close.png" id="pw-close" alt="">
+            <img id="img-wrong"  alt="" title="密码错误">
+            
+        </i>
+        <span id="span-2"></span>
+
+    </div>
+
+
+
+    <script>
+        const pw = document.querySelector('#pw')
+        const span2 = document.querySelector('#span-2')
+        const imgjudge = document.querySelector('#img-wrong')
+        const pwvisible = document.querySelector('#pw-close')
+
+
+        pw.onblur = function() {
+            if (pw.value.length > 0) {
+                if (pw.value.length < 6) {
+                pwvisible.src = './images/close.png'
+                imgjudge.src = './images/wrong.png'
+                span2.innerHTML = '密码较短，最短支持6个字符'
+                }else if (pw.value.length > 16) {
+                pwvisible.src = './images/close.png'
+                imgjudge.src = './images/wrong.png'        
+                span2.innerHTML = '密码较长，最长支持16个字符'
+                 }
+                else {
+                pwvisible.src = './images/close.png'
+                imgjudge.src = './images/right.png'
+                span2.innerHTML = '密码格式正确'
+                 }
+            }
+            if (pw.value.length === 0) {
+                pwvisible.src = './images/close.png'
+                imgjudge.src = ''
+                span2.innerHTML = ''
+
+            }
+        
+        }
+
+        let flag = 1
+        pwvisible.onclick = function() {
+            if (flag === 1) {
+                pwvisible.src = './images/open.png'
+                pw.type = 'text'
+                flag = 0
+            }else if (flag === 0) {
+                pwvisible.src = './images/close.png'
+                pw.type = 'password'
+                flag = 1
+            }
+        }
+    </script>
+
+</body>
+</html>

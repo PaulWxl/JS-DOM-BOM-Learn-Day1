@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 案例： 分时显示不同图片,显示不同问候语
+
+    根据不同时间，页面显示不同图片，同时显示不同的问候语。
+    如果上午时间打开页面，显示上午好，显示上午的图片。
+    如果下午时间打开页面，显示下午好，显示下午的图片。
+    如果晚上时间打开页面，显示晚上好，显示晚上的图片。 -->
+
+
+
+    <!-- 注意使用时间的内置对象---new Date()--- 然后获取小时数---getHours() -->
+    <p>上午好</p>
+    <img src="./images/s.gif" alt="">
+
+    
+
+    <script>
+
+        const p = document.querySelector('p')
+        const img = document.querySelector('img')
+
+        let date = new Date()
+        let hour = date.getHours()
+
+        if (hour >= 6 && hour < 12) {
+            img.src = './images/s.gif'
+            p.innerHTML = '上午好'
+        } else if (hour >= 12 && hour < 18) {
+            img.src = './images/x.gif'
+            p.innerHTML = '下午好'
+        }else if (hour >= 18 && hour <= 23) {
+            img.src = './images/w.gif'
+            p.innerHTML = '晚上好'
+        }else if (hour >= 0 && hour < 6 ) {
+            img.src = './images/sy.jpeg'
+            p.innerHTML = '愿你在这个深夜里能够平静安眠，明天醒来精神饱满，迎接新的一天。晚安！'
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerHTML和innerText的区别</title>
+</head>
+<body>
+    <div></div>
+    <p>
+        12312414
+        <span>未访问过我跟我</span>
+    </p>
+
+    <script>
+        //innerText是非标准，会去除空格和换行、innerHTML是W3C标准，不会去除空格和换行，使用的更多
+        //他们两个都是可读写的---即可以获取到元素内容的
+        const div = document.querySelector('div')
+        const p = document.querySelector('p')
+        div.innerText = '今天是： 2019'
+
+        div.innerHTML = '<strong>' + '今天是：  2019'+ '</strong>'//区别就在于innerHTML可以识别html标签
+        console.log(p.innerText)//会把空格和换行消掉,而且不会显示html标签
+        console.log(p.innerHTML)//不会去掉空格和换行，会显示html标签
+
+        
+    </script>
+</body>
+</html>

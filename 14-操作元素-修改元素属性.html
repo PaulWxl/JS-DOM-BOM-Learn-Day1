@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+            height: 200px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <button>刘德华</button>
+    <button>张学友</button>
+    <img src="./images/ldh.jpg" alt="" title="刘德华">
+
+
+    <script>
+        const btns = document.querySelectorAll('button')
+        const img = document.querySelector('img')
+        btns[1].onclick = function() {
+            //这就是直接操作元素属性---直接操作img的src、title属性
+            img.src = './images/zxy.jpg'
+            img.title = "张学友"
+        }
+        btns[0].onclick = function() {
+            img.src = './images/ldh.jpg'
+            img.title = "刘德华"
+        }
+
+    </script>
+</body>
+</html>

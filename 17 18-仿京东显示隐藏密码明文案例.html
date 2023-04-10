@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 去除border的边框---border:0 --- 给最外面的盒子加下边框*/
+
+        .box {
+            position: relative;
+            width: 400px;
+            border-bottom: 1px solid #ccc;
+            margin: 100px auto;
+        }
+        .box input {
+            width: 365px;
+            height: 30px;
+            border: 0;
+            /* outline去除input选中后外部的边框 */
+            outline: none;
+        }
+        .box span img {
+            /* 运用子绝父相给图片定位 */
+            position: absolute;
+            right: -3px;
+            top: 4px;
+
+            width: 26px;
+            height: 26px;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- 显示密码核心---将密码框切换为文本框---显示明文 -->
+
+
+    <!-- 注意外面套了一层盒子，方便定位 -->
+    <div class="box">
+        <input type="password" id="password" name="password" value="">
+        <span>
+            <img src="./images/close.png" alt="">
+        </span>
+    </div>
+
+
+    <script>
+        const ipt = document.querySelector('input')
+        const img = document.querySelector('img')
+
+
+        // 想要重复多次，就设置一个flag变量
+        let flag = 1
+        img.onclick = function() {
+            if (flag === 1) {
+                img.src = './images/open.png'
+                ipt.type = 'text'
+                flag = 0
+            }else {
+                img.src = './images/close.png'
+                ipt.type = 'password'
+                flag = 1
+            }
+            
+        }
+
+    </script>
+</body>
+</html>

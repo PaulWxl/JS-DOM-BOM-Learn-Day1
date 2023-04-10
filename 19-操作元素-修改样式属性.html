@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- 可以通过JS修改元素的大小，颜色，位置等样式 -->
+
+    <!-- 1. 如果需要修改的样式比较少--- 可以通过element.style 行内样式操作 
+        2. 如果修改的比较多，可以通过类名样式操作--- element.className  -->
+
+
+        <!-- JS直接修改元素的style，修改的是行内样式，比CSS权重(--- CSS叫内嵌样式)高，这也是为什么可以修改样式的原因 -->
+
+    <div></div>
+
+    <script>
+        const div = document.querySelector('div')
+
+
+        let flag = 1
+        div.addEventListener('click', function() {
+            if (flag === 1) {
+                // div.style.backgroundColor = 'purple'
+
+                // 可以使用this
+
+                // 注意style里面的属性要  采取---驼峰命名法
+                this.style.backgroundColor = 'purple'
+                this.style.width = '250px'
+                this.style.height = '250px'
+                flag = 0
+            }else {
+                // div.style.backgroundColor = 'pink'
+
+
+                this.style.backgroundColor = 'pink'
+                this.style.width = '200px'
+                this.style.height = '200px'
+                flag = 1
+            }
+        })
+    </script>
+</body>
+</html>

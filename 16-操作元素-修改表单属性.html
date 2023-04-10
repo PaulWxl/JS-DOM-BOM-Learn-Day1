@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 表单元素的属性比较多，利用DOM修改表单元素的属性比较常用---input:   value/type/checked/selected/disabled  -->
+
+    <!-- disabled值为bool型，true时被禁用，false时可使用 -->
+    <button>按钮</button>
+    <input type="text" value="输入内容">
+
+    <script>
+        const btn = document.querySelector('button')
+        const ipt = document.querySelector('input')
+
+        btn.addEventListener('click', function() {
+            ipt.value = '114141414'//对于表单元素input，想要修改内容，不是使用innerHTML,而是使用value---说明input元素有自己的一套规则---innerHTML只适用于普通的元素（div等）
+
+
+            //btn点击一次后禁用
+            // btn.disabled = true
+            // 可以用this---this 指向事件函数的调用者
+            this.disabled = true
+        })
+    </script>
+</body>
+</html>

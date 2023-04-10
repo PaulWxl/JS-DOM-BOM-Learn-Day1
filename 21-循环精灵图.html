@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .box {
+            /* 注意给盒子设置一定的宽度 */
+            width: 250px;
+            margin: 100px auto;
+        }
+
+        .box li {
+            float: left;
+            width: 24px;
+            height: 24px;
+            /* background-color: pink; */
+            margin: 15px;
+            background: url(./images/sprite.png) no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <!-- 案例： 循环精灵图背景
+    可以利用 for 循环设置一组元素的精灵图背景 -->
+
+
+    <!-- 核心： 利用for循环，修改精灵图的背景位置--- background-position -->
+    <!-- 让循环里面的i索引号*44就是每个图片的y坐标 -->
+
+    
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+
+
+    <script>
+        //所有的小li  获取元素
+        const lis = document.querySelectorAll('li')
+
+
+        for (var i = 0; i < lis.length; i++) {
+            //每一个小li都要改变背景位置
+            // 让索引号乘以44就是y坐标,index 就是我们的y坐标
+            let index = i * 44
+            // 注意y坐标前面要加负号，删掉数字，引引加加，左上角第一个元素的坐标为0 0
+            //'0 -44px'
+            lis[i].style.backgroundPosition = '0 -'+index+'px'//第一个是x的坐标 第二个是y的坐标
+        }
+
+    </script>
+
+
+</body>
+</html>

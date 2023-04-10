@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #password {
+            margin-left: 16px;
+        }
+        /* span {
+            font-size: smaller;
+            color: #f00;
+        } */
+    </style>
+</head>
+<body>
+    <label for="username">用户名: </label>
+    <input type="text" id="username" value="" name="username">
+    <span></span>
+    <br>
+    <label for="password">密码:    </label>
+    <input type="text" id="password" value="" name="password">
+
+
+    <script>
+        const iptun = document.querySelector('#username')
+        const iptpas = document.querySelector('#password')
+        const span = document.querySelector('span')
+
+
+        
+
+        function handle(data) {
+            span.innerHTML = data.msg
+            span.style.fontSize = 'smaller'
+            span.style.color = '#f00'
+        }
+
+
+        //动态创建script标签，并指定路径为http://127.0.0.1:8000/test-server
+        const script = document.createElement('script')
+        script.src = 'http://127.0.0.1:8000/test-server'
+        
+        
+        
+        
+        iptun.onblur = function() {
+            //script是作为子节点被document.body添加进来的
+            document.body.appendChild(script)
+        }
+    </script>
+
+
+</body>
+</html>
